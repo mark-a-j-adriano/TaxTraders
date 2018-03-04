@@ -14,9 +14,7 @@ class Calculator extends CI_Controller {
       $form_data = $this->input->post();
      
 			$value = $this->input->post("input");
-			if(is_null($value)){
-				$result = "Please enter a valid number !!!";
-			}else{
+			
 				$code = (string) $value;
 				$len = strlen($code);
 				$digits =  "";
@@ -34,10 +32,6 @@ class Calculator extends CI_Controller {
 
 				$result = "Your input : " . $code . "<br>";
 				$result = $result . $this->input->post('sbm') . "-indexed digits are [" . rtrim($digits,",") . "] <br> SUM : " . $sum;
-
-				
-			}
-			
 
 			$data['sum'] = (is_numeric($value)) ?  $result  : ""; 
 			$this->load->view('calculator', $data);    
