@@ -44,9 +44,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		margin: 14px 0 14px 0;
 		padding: 12px 10px 12px 10px;
 	}
+	#header {
+		margin: 0 15px 0 15px;
+		padding: 12px 10px 12px 10px;
+		border: 1px dotted #D0D0D0;
+	}
 
 	#body {
 		margin: 0 15px 0 15px;
+		padding: 12px 10px 12px 10px;
+		border: 1px dotted #D0D0D0;
+		background-color: #F8F8F8;
 	}
 
 	p.footer {
@@ -71,9 +79,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<h1>Welcome to Calculator!</h1>
 
 	<div id="header">
+
+		<form name ="userinput" action="calc" method="post">
+			Integer Value <input type="number" name="input" min="0"> 
+			<br/>
+			<br/>
+			<b>Options : </b>
+			<br/>
+			<button name="sbm" value="odd" type="submit">Sum of odd-indexed digits</button>
+			<button name="sbm" value="even" type="submit">Sum of even-indexed digits</button>
+			<button name="sbm" value="all" type="submit">Sum of all indexed digits</button>
+			
+		</form>
+
+
 	</div>
 
 	<div id="body">
+		<?php echo $sum ?>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
