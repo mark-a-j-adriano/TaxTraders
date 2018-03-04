@@ -80,8 +80,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 	<div id="header">
 
-		<form name ="userinput" action="calc" method="post">
-			Integer Value <input type="number" name="input" min="0"> 
+		<form name ="userinput" action="calculator" method="post">
+			Integer Value <input type="number" name="input" min="0" value="0"> 
 			<br/>
 			<br/>
 			<b>Options : </b>
@@ -99,8 +99,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<?php echo $sum ?>
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+	<p class="footer">
+		Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
+	</p>
+
+	<input type="hidden" name="interval" value="1">
+	<input type="hidden" name="start" value="0">
 </div>
 
+	 
+
 </body>
+
 </html>
