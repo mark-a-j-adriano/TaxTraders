@@ -80,8 +80,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 	<div id="header">
 
-		<form name ="userinput" action="calculator" method="post">
-			Integer Value <input type="number" name="input" min="0" value="0"> 
+		<form name ="userinput" action="calculator" method="post" onsubmit="return validateForm()">
+			Integer Value <input type="text" name="input" value=""> 
 			<br/>
 			<br/>
 			<b>Options : </b>
@@ -103,12 +103,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
 	</p>
 
-	<input type="hidden" name="interval" value="1">
-	<input type="hidden" name="start" value="0">
+	
 </div>
+	<script>
+	function validateForm() {
+		var x = document.forms["userinput"]["input"].value;
+		if (x == "") {
+			alert("Integer Value must be filled out");
+			return false;
+		}else if(!isNaN(parseFloat(x))){
+			alert("Please enter a valid integer value");
+			return false;
+		}else if(x < 0){
+			alert("Please enter a valid integer value");
+			return false;
+		}
+	}
 
-	 
-
+	function isNumeric(n) {
+		return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+	</script>
 </body>
 
 </html>
