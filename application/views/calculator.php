@@ -111,7 +111,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		if (x == "") {
 			alert("Integer Value must be filled out");
 			return false;
-		}else if(!isNaN(parseFloat(x))){
+		}else if(isNaN(x)){
 			alert("Please enter a valid integer value");
 			return false;
 		}else if(x < 0){
@@ -120,9 +120,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		}
 	}
 
-	function isNumeric(n) {
-		return !isNaN(parseFloat(n)) && isFinite(n);
-	}
+	
 	</script>
 </body>
 
